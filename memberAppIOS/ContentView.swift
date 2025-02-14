@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+var memberID: String = ""
+
+func GetMemberID(_ ID: String) -> String {
+    memberID = ID
+    
+    print("memberID: \(memberID)")
+    
+    return memberID
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {

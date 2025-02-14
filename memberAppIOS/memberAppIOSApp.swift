@@ -22,8 +22,16 @@ struct memberAppIOSApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
-        WindowGroup {
+        WindowGroup("SetupView", id: "Setup") {
+            SetupView()
+        }
+        
+        WindowGroup("ContentView", id: "Content") {
             ContentView()
+        }
+        
+        WindowGroup("SettingsView", id: "Settings") {
+            SettingsView()
         }
     }
 }
