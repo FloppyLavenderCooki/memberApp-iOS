@@ -1,5 +1,5 @@
 {
-  "originHash" : "c63c63846d9c539229e96de38d6af51417e28c0ee9a0bc48bd0f0f19d923c329",
+  "originHash" : "da578b274d7afdebfa5f200e79c9063bdfd18cf82f01c195386134c75628628b",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -116,6 +116,15 @@
       "state" : {
         "revision" : "ebc7251dd5b37f627c93698e4374084d98409633",
         "version" : "1.28.2"
+      }
+    },
+    {
+      "identity" : "swiftnfc",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/1998code/SwiftNFC",
+      "state" : {
+        "revision" : "6bd8a0b9472e7fd2cab56723eb8f1899d915d91b",
+        "version" : "2.0.0"
       }
     }
   ],

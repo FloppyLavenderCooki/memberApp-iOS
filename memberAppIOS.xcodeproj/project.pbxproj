@@ -12,6 +12,7 @@
 		8AB283742D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB283732D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		8AB283762D5FE0B2009CA44A /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB283752D5FE0B2009CA44A /* FirebaseAppCheck */; };
 		8AB283782D5FE0B2009CA44A /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB283772D5FE0B2009CA44A /* FirebaseAppDistribution-Beta */; };
+		8AB2839D2D5FF1B7009CA44A /* SwiftNFC in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB2839C2D5FF1B7009CA44A /* SwiftNFC */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 				8AB283702D5FE0B2009CA44A /* FirebaseAnalytics in Frameworks */,
 				8AB283782D5FE0B2009CA44A /* FirebaseAppDistribution-Beta in Frameworks */,
 				8AB283742D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				8AB2839D2D5FF1B7009CA44A /* SwiftNFC in Frameworks */,
 				8AB283722D5FE0B2009CA44A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +132,7 @@
 				8AB283732D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport */,
 				8AB283752D5FE0B2009CA44A /* FirebaseAppCheck */,
 				8AB283772D5FE0B2009CA44A /* FirebaseAppDistribution-Beta */,
+				8AB2839C2D5FF1B7009CA44A /* SwiftNFC */,
 			);
 			productName = memberAppIOS;
 			productReference = 8AB283302D5FDEC6009CA44A /* memberAppIOS.app */;
@@ -215,6 +218,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				8AB2836E2D5FE0B2009CA44A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8AB2839B2D5FF1B7009CA44A /* XCRemoteSwiftPackageReference "SwiftNFC" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8AB283312D5FDEC6009CA44A /* Products */;
@@ -589,6 +593,14 @@
 				minimumVersion = 11.8.1;
 			};
 		};
+		8AB2839B2D5FF1B7009CA44A /* XCRemoteSwiftPackageReference "SwiftNFC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/1998code/SwiftNFC";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -616,6 +628,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8AB2836E2D5FE0B2009CA44A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAppDistribution-Beta";
+		};
+		8AB2839C2D5FF1B7009CA44A /* SwiftNFC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8AB2839B2D5FF1B7009CA44A /* XCRemoteSwiftPackageReference "SwiftNFC" */;
+			productName = SwiftNFC;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
