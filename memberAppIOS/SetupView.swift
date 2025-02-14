@@ -1,24 +1,23 @@
 //
-//  ContentView.swift
+//  SetupView.swift
 //  memberAppIOS
 //
 //  Created by Arav Prasad on 15/02/2025.
 //
-
 import SwiftUI
 
-struct ContentView: View {
+struct SetupView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "person.text.rectangle.fill")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("view member information and manage")
+            Text("Add member card and get details")
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    SetupView()
 }

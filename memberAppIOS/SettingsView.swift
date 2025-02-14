@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SettingsView.swift
 //  memberAppIOS
 //
 //  Created by Arav Prasad on 15/02/2025.
@@ -7,18 +7,19 @@
 
 import SwiftUI
 
-struct ContentView: View {
+
+struct SettingsView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "gear")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("view member information and manage")
+            Text("log out or change details")
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    SettingsView()
 }
