@@ -26,13 +26,12 @@ struct SetupView: View {
                     .font(.system(size: 36, weight: .bold))
                 
                 Button(action: {
-                    // scan nfc card. for now, we will skip this and pass ID 000 to ContentView
+                    // scan nfc card. for now, we will skip this and pass ID 0 to ContentView
                     if !NFCReaderSession.readingAvailable {
                         canNotNFC = true
                     } else {
-                        var cardResult = "000"
-                        
-                        GetMemberID(String(cardResult))
+                        @StateObject var nfcReader = NFCReader()
+                        nfcReader.startScanning()
                     }
                 }) {
                     Text("Scan Member Card")
@@ -42,10 +41,11 @@ struct SetupView: View {
                         .background(.green)
                         .cornerRadius(20)
                 }
-                .alert("Your Phone does not support NFC!", isPresented: $canNotNFC) {
-                    TextField("Enter User ID", text: $userID)
+                .alert("Your device does not support NFC!", isPresented: $canNotNFC) {
+                    TextField("G2-XXXXXXXX", text: $userID)
+                        .keyboardType(.decimalPad)
                     Button("OK") {
-                        GetMemberID(userID)
+                        GetMemberID("G2-\(userID)")
                     }
                     Button("Cancel", role: .cancel) {}
                     

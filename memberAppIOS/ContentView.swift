@@ -14,18 +14,26 @@ func GetMemberID(_ ID: String) -> String {
     
     print("memberID: \(memberID)")
     
+    @Environment(\.openWindow) var openWindow
+    openWindow(id: "Content")
+    
     return memberID
 }
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("view member information and manage")
+        ZStack {
+            Color(hue: 0.6, saturation: 0.25, brightness: 1).edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("view member information and manage")
+                Text(memberID)
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
