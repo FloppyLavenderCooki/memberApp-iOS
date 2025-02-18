@@ -15,16 +15,17 @@ struct SetupView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(hue: 0.6, saturation: 0.25, brightness: 1).edgesIgnoringSafeArea(.all)
+                Color(hue: 0.6, saturation: 1, brightness: 0.5).edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     Image(systemName: "person.text.rectangle.fill")
                         .resizable()
                         .frame(width: 100, height: 75)
-                        .foregroundStyle(.tint)
+                        .foregroundStyle(Color(hue: 0.6, saturation: 0.5, brightness: 1))
                     
                     Text("Welcome")
                         .font(.system(size: 36, weight: .bold))
+                        .colorInvert()
                     
                     Button(action: {
                         // scan nfc card. for now, we will skip this and pass ID 0 to ContentView

@@ -12,26 +12,46 @@ import FirebaseFirestore
 
 var usersData: [String : Any] = [:]
 
+//func getUsers() async {
+//    print("getting users")
+//    
+//    let db = Firestore.firestore()
+//    
+//    db.collection("Users").getDocuments() { (querySnapshot, err) in
+//        if let err = err {
+//            print("Error getting documents: \(err)")
+//        } else {
+//            var dData: [String : Any] = [:]
+//            
+//            for document in querySnapshot!.documents {
+//                let key = document.documentID
+//                let value = document.data()
+//                dData[key] = value
+//            }
+//            usersData = dData
+//        }
+//    }
+//}
+
 func getUsers() async {
     print("getting users")
     
     let db = Firestore.firestore()
     
-    db.collection("Users").getDocuments() { (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        } else {
-            var dData: [String : Any] = [:]
-            
-            for document in querySnapshot!.documents {
-                let key = document.documentID
-                let value = document.data()
-                dData[key] = value
-            }
-            usersData = dData
+    do {
+        let snapshot = try await db.collection("Users").getDocuments()
+        var dData: [String: Any] = [:]
+        
+        for document in snapshot.documents {
+            dData[document.documentID] = document.data()
         }
+        
+        usersData = dData
+    } catch {
+        print("Error getting documents: \(error)")
     }
 }
+
 
 func getUserNoCard(_ cardSN: String) async -> String {
     await getUsers()
