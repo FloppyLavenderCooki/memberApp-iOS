@@ -15,16 +15,6 @@ var usersData: [String : Any] = [:]
 func getUsers() async {
     print("getting users")
     
-    Auth.auth().signInAnonymously { (authResult, err) in
-        if let err = err {
-            print("Auth error: \(err)")
-        } else {
-            guard let user = authResult?.user else { return }
-            let isAnonymous = user.isAnonymous  // true
-            let uid = user.uid
-        }
-    }
-    
     let db = Firestore.firestore()
     
     db.collection("Users").getDocuments() { (querySnapshot, err) in
