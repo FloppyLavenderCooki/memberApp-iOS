@@ -29,7 +29,9 @@ class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
                     DispatchQueue.main.async {
                         var cardResult = payloadText
                         
-                        GetMemberID(String("G2-\(cardResult)"))
+                        Task {
+                            await getUserFromID(cardResult)
+                        }
                     }
                 }
             }

@@ -12,7 +12,6 @@
 		8AB283742D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB283732D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		8AB283762D5FE0B2009CA44A /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB283752D5FE0B2009CA44A /* FirebaseAppCheck */; };
 		8AB283782D5FE0B2009CA44A /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB283772D5FE0B2009CA44A /* FirebaseAppDistribution-Beta */; };
-		8AB2839D2D5FF1B7009CA44A /* SwiftNFC in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB2839C2D5FF1B7009CA44A /* SwiftNFC */; };
 		8AC27F772D640C37000DA64A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8AC27F762D640C37000DA64A /* FirebaseAuth */; };
 		8AC27F792D640C37000DA64A /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 8AC27F782D640C37000DA64A /* FirebaseAuthCombine-Community */; };
 		8AC27F7B2D640C37000DA64A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8AC27F7A2D640C37000DA64A /* FirebaseCore */; };
@@ -88,7 +87,6 @@
 				8AB283742D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				8AC27F8B2D640C37000DA64A /* FirebaseInAppMessaging-Beta in Frameworks */,
 				8AC27F912D640C37000DA64A /* FirebaseMLModelDownloader in Frameworks */,
-				8AB2839D2D5FF1B7009CA44A /* SwiftNFC in Frameworks */,
 				8AC27F8F2D640C37000DA64A /* FirebaseMessaging in Frameworks */,
 				8AC27F992D640C37000DA64A /* FirebaseStorageCombine-Community in Frameworks */,
 				8AC27F772D640C37000DA64A /* FirebaseAuth in Frameworks */,
@@ -178,7 +176,6 @@
 				8AB283732D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport */,
 				8AB283752D5FE0B2009CA44A /* FirebaseAppCheck */,
 				8AB283772D5FE0B2009CA44A /* FirebaseAppDistribution-Beta */,
-				8AB2839C2D5FF1B7009CA44A /* SwiftNFC */,
 				8AC27F762D640C37000DA64A /* FirebaseAuth */,
 				8AC27F782D640C37000DA64A /* FirebaseAuthCombine-Community */,
 				8AC27F7A2D640C37000DA64A /* FirebaseCore */,
@@ -283,7 +280,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				8AB2836E2D5FE0B2009CA44A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				8AB2839B2D5FF1B7009CA44A /* XCRemoteSwiftPackageReference "SwiftNFC" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8AB283312D5FDEC6009CA44A /* Products */;
@@ -495,6 +491,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,6 +499,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = GroupTwo.memberAppIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,6 +526,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,6 +534,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = GroupTwo.memberAppIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -660,14 +666,6 @@
 				minimumVersion = 11.8.1;
 			};
 		};
-		8AB2839B2D5FF1B7009CA44A /* XCRemoteSwiftPackageReference "SwiftNFC" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/1998code/SwiftNFC";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -695,11 +693,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8AB2836E2D5FE0B2009CA44A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAppDistribution-Beta";
-		};
-		8AB2839C2D5FF1B7009CA44A /* SwiftNFC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8AB2839B2D5FF1B7009CA44A /* XCRemoteSwiftPackageReference "SwiftNFC" */;
-			productName = SwiftNFC;
 		};
 		8AC27F762D640C37000DA64A /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

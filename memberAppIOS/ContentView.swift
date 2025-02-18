@@ -9,13 +9,12 @@ import SwiftUI
 
 var memberID: String = ""
 
-func GetMemberID(_ ID: String) -> String {
+func ContentID(_ ID: String) -> String {
     memberID = ID
     
     print("memberID: \(memberID)")
     
-    @Environment(\.openWindow) var openWindow
-    openWindow(id: "Content")
+    // open contentview
     
     return memberID
 }

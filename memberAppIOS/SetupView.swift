@@ -34,6 +34,9 @@ struct SetupView: View {
                             @StateObject var nfcReader = NFCReader()
                             nfcReader.startScanning()
                         }
+                        
+                        // scanning code here, functions in NFCReader.swift
+                        
                     }) {
                         Text("Scan Member Card")
                             .font(.system(size: 20, weight: .bold))
@@ -46,7 +49,7 @@ struct SetupView: View {
                         TextField("G2-XXXXXXXX", text: $userID)
                             .keyboardType(.decimalPad)
                         Button("OK") {
-                            GetMemberID("G2-\(userID)")
+                            getUserNoCard(userID)
                         }
                         Button("Cancel", role: .cancel) {}
                         
