@@ -47,7 +47,6 @@ struct SetupView: View {
                             .keyboardType(.decimalPad)
                         Button("OK") {
                             GetMemberID("G2-\(userID)")
-                            
                         }
                         Button("Cancel", role: .cancel) {}
                         

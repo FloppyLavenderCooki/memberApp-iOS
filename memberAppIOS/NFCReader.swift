@@ -15,7 +15,7 @@ class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
         session?.alertMessage = "Hold your device near your card."
         session?.begin()
     }
-
+    
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) { // invalidate
         // Handle errors or session invalidation here.
         print("NFC Session invalidated: \(error.localizedDescription)")
@@ -33,6 +33,7 @@ class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
                     }
                 }
             }
+            
         }
     }
 }
