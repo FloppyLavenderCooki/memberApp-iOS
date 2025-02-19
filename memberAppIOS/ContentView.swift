@@ -33,9 +33,6 @@ struct ContentView: View {
                         .imageScale(.large)
                         .foregroundStyle(.tint)
                     Text("view member information and manage")
-//                    List(userDataModel.userData, id: \.self) { item in
-//                        
-//                    }
                 }
                 .padding()
             }
