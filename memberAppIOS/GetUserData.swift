@@ -5,6 +5,8 @@
 //  Created by Arav Prasad on 18/02/2025.
 //
 
+import Foundation
+import Firebase
 import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
@@ -12,26 +14,31 @@ import FirebaseFirestore
 
 var usersData: [String : Any] = [:]
 
-//func getUsers() async {
-//    print("getting users")
-//    
-//    let db = Firestore.firestore()
-//    
-//    db.collection("Users").getDocuments() { (querySnapshot, err) in
-//        if let err = err {
-//            print("Error getting documents: \(err)")
-//        } else {
-//            var dData: [String : Any] = [:]
-//            
-//            for document in querySnapshot!.documents {
-//                let key = document.documentID
-//                let value = document.data()
-//                dData[key] = value
-//            }
-//            usersData = dData
-//        }
-//    }
-//}
+struct libraryUser : Identifiable {
+    var id: String
+    
+    var books: [String]
+    var overDue: [String]
+    var cardSN: String
+    var city: String
+    var level: Int
+    var name: String
+    var password: String
+}
+
+class ViewModel: ObservableObject {
+    @Published var userData = [libraryUser]()
+    
+    func getData() {
+        let db = Firestore.firestore()
+        db.collection("Users").getDocuments { (snapshot, error) in
+            if error == nil {
+                
+            }
+        }
+    }
+    
+}
 
 func getUsers() async {
     print("getting users")

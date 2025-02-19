@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A69EE8A2D65157D00C5BAF6 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB283752D5FE0B2009CA44A /* FirebaseAppCheck */; };
 		8AB283702D5FE0B2009CA44A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB2836F2D5FE0B2009CA44A /* FirebaseAnalytics */; };
 		8AB283722D5FE0B2009CA44A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB283712D5FE0B2009CA44A /* FirebaseAnalyticsOnDeviceConversion */; };
 		8AB283742D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB283732D5FE0B2009CA44A /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -78,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A69EE8A2D65157D00C5BAF6 /* FirebaseAppCheck in Frameworks */,
 				8AC27F832D640C37000DA64A /* FirebaseFirestore in Frameworks */,
 				8AB283702D5FE0B2009CA44A /* FirebaseAnalytics in Frameworks */,
 				8AC27F8D2D640C37000DA64A /* FirebaseInstallations in Frameworks */,
@@ -480,10 +482,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = memberAppIOS/memberAppIOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"memberAppIOS/Preview Content\"";
-				DEVELOPMENT_TEAM = P6QHT449CW;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Group Two Libraries";
@@ -499,6 +502,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = GroupTwo.memberAppIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -515,10 +519,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = memberAppIOS/memberAppIOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"memberAppIOS/Preview Content\"";
-				DEVELOPMENT_TEAM = P6QHT449CW;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Group Two Libraries";
@@ -534,6 +539,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = GroupTwo.memberAppIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

@@ -19,7 +19,10 @@ func ContentID(_ ID: String) -> String {
     return memberID
 }
 
+
 struct ContentView: View {
+    @ObservedObject var userDataModel = ViewModel()
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -30,7 +33,9 @@ struct ContentView: View {
                         .imageScale(.large)
                         .foregroundStyle(.tint)
                     Text("view member information and manage")
-                    Text(memberID)
+//                    List(userDataModel.userData, id: \.self) { item in
+//                        
+//                    }
                 }
                 .padding()
             }
