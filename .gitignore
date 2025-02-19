@@ -62,3 +62,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 memberAppIOS/GoogleService-Info.plist
 .DS_Store
+/unsigned.xcarchive
