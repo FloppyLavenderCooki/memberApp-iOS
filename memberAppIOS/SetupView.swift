@@ -50,7 +50,7 @@ struct SetupView: View {
                         TextField("G2-XXXXXXXX", text: $userID)
                             .keyboardType(.decimalPad)
                         Button("OK") {
-                            // get data method TYPE
+                            getUserData(userID, "TYPE")
                         }
                         Button("Cancel", role: .cancel) {}
                         

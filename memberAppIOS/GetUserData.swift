@@ -11,7 +11,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 
-struct libraryUser {
+struct libraryUser: Identifiable {
     var id: String
     
     var books: [String] = []
@@ -24,17 +24,25 @@ struct libraryUser {
     var password: String = ""
 }
 
+var getMethod: String = "TYPE"
+var searchData: String = "00000000"
+
+func getUserData(_ sText: String, _ method: String) {
+    getMethod = method
+    searchData = sText
+}
+
 class ViewModel: ObservableObject {
     @Published var userData = [libraryUser]()
     
-    func getData(_ getMethod: String, searchData: String) {
+    func getData() {
         let db = Firestore.firestore()
         db.collection("Users").getDocuments { (snapshot, error) in
             if error == nil {
                 if let snapshot = snapshot {
                     self.userData = snapshot.documents.map { document in
-                        let userFound =  libraryUser(id: document.documentID, books: document["Books"] as? [String] ?? [], overDue: document["Overdue"] as? [String] ?? [], cardSN: document["CardSN"] as? String ?? "", city: document["City"] as? String ?? "", level: document["Level"] as? Int ?? 0, exp: document["Exp"] as? Int ?? 0, name: document["CardSN"] as? String ?? "", password: document["Password"] as? String ?? "")
-                        
+                        let userFound =  libraryUser(id: document.documentID, books: document["Books"] as? [String] ?? [], overDue: document["Overdue"] as? [String] ?? [], cardSN: document["CardSN"] as? String ?? "", city: document["City"] as? String ?? "", level: document["Level"] as? Int ?? 0, exp: document["Exp"] as? Int ?? 0, name: document["Name"] as? String ?? "", password: document["Password"] as? String ?? "")
+                                                
                         if getMethod == "NFC" {
                             if searchData == userFound.cardSN {
                                 return userFound
@@ -53,44 +61,9 @@ class ViewModel: ObservableObject {
                     print("couldn't find user")
                 } else {
                     print("received data: \(self.userData)")
-                    // send data
+                    // send data to content
                 }
             }
         }
     }
 }
-
-//func getUsers() async {
-//    print("getting users")
-//    
-//    let db = Firestore.firestore()
-//    
-//    do {
-//        let snapshot = try await db.collection("Users").getDocuments()
-//        var dData: [String: Any] = [:]
-//        
-//        for document in snapshot.documents {
-//            dData[document.documentID] = document.data()
-//        }
-//        
-//        usersData = dData
-//    } catch {
-//        print("Error getting documents: \(error)")
-//    }
-//}
-//
-//
-//func getUserNoCard(_ cardSN: String) async -> String {
-//    await getUsers()
-//    
-//    print(cardSN)
-//    return ""
-//}
-//
-//func getUserFromID(_ id: String) async -> String {
-//    await getUsers()
-//    
-//    print(id)
-//    print(usersData)
-//    return ""
-//}

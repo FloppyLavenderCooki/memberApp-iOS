@@ -7,18 +7,9 @@
 
 import SwiftUI
 
-var memberID: String = ""
-
-func ContentID(_ ID: String) -> String {
-    memberID = ID
+func passContent(_ data: libraryUser) {
     
-    print("memberID: \(memberID)")
-    
-    // open contentview
-    
-    return memberID
 }
-
 
 struct ContentView: View {
     @ObservedObject var userDataModel = ViewModel()
@@ -33,11 +24,24 @@ struct ContentView: View {
                         .imageScale(.large)
                         .foregroundStyle(.tint)
                     Text("view member information and manage")
+                    
+                    List(userDataModel.userData) { item in
+                        Text(item.name)
+                    }
+                    .listStyle(.plain)
+                    .background(Color(hue: 0.6, saturation: 0.25, brightness: 1))
+                    .clipped()
+                    .font(Font.custom("Rubik", size: 18))
                 }
                 .padding()
             }
         }
     }
+    
+    init() {
+        userDataModel.getData()
+    }
+    
 }
 
 #Preview {
