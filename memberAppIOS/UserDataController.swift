@@ -22,6 +22,7 @@ struct libraryUser: Identifiable {
     var exp: Int = 0
     var name: String = ""
     var password: String = ""
+    var expiry: String = ""
 }
 
 var getMethod: String = "TYPE"
@@ -41,7 +42,7 @@ class ViewModel: ObservableObject {
             if error == nil {
                 if let snapshot = snapshot {
                     self.userData = snapshot.documents.map { document in
-                        let userFound =  libraryUser(id: document.documentID, books: document["Books"] as? [String] ?? [], overDue: document["Overdue"] as? [String] ?? [], cardSN: document["CardSN"] as? String ?? "", city: document["City"] as? String ?? "", level: document["Level"] as? Int ?? 0, exp: document["Exp"] as? Int ?? 0, name: document["Name"] as? String ?? "", password: document["Password"] as? String ?? "")
+                        let userFound =  libraryUser(id: document.documentID, books: document["Books"] as? [String] ?? [], overDue: document["Overdue"] as? [String] ?? [], cardSN: document["CardSN"] as? String ?? "", city: document["City"] as? String ?? "", level: document["Level"] as? Int ?? 0, exp: document["Exp"] as? Int ?? 0, name: document["Name"] as? String ?? "", password: document["Password"] as? String ?? "", expiry: document["Expiry"] as? String ?? "")
                                                 
                         if getMethod == "NFC" {
                             if searchData == userFound.cardSN {

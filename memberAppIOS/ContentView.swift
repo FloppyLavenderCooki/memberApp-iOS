@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-func passContent(_ data: libraryUser) {
-    
-}
-
 struct ContentView: View {
     @ObservedObject var userDataModel = ViewModel()
     
@@ -31,7 +27,7 @@ struct ContentView: View {
                     .listStyle(.plain)
                     .background(Color(hue: 0.6, saturation: 0.25, brightness: 1))
                     .clipped()
-                    .font(Font.custom("Rubik", size: 18))
+                    .font(Font.custom("Rubik", size: 30))
                 }
                 .padding()
             }
