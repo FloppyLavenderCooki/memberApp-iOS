@@ -15,17 +15,19 @@ struct SetupView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(hue: 0.6, saturation: 1, brightness: 0.5).edgesIgnoringSafeArea(.all)
+                Color.cbBlue
+                    .ignoresSafeArea()
                 
                 VStack {
-                    Image(systemName: "person.text.rectangle.fill")
+                    Spacer()
+                    Image(.numberTwo)
                         .resizable()
-                        .frame(width: 100, height: 75)
-                        .foregroundStyle(Color(hue: 0.6, saturation: 0.5, brightness: 1))
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: 100)
                     
                     Text("Welcome")
                         .font(.system(size: 36, weight: .bold))
-                        .colorInvert()
+                        .foregroundStyle(.textColour)
                     
                     Button(action: {
                         // scan nfc card. for now, we will skip this and pass ID 0 to ContentView
@@ -40,10 +42,12 @@ struct SetupView: View {
                         
                     }) {
                         Text("Scan Member Card")
+                            .frame(maxWidth: .infinity)
                             .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
+                            .foregroundColor(.textColour)
+                            .colorInvert()
                             .padding()
-                            .background(.green)
+                            .background(.cGreen)
                             .cornerRadius(20)
                     }
                     .alert("Your device does not support NFC!", isPresented: $canNotNFC) {
@@ -54,6 +58,15 @@ struct SetupView: View {
                         }
                         Button("Cancel", role: .cancel) {}
                         
+                    }
+                    
+                    Spacer()
+                    HStack {
+                        Image(.textLogo)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 250)
+                        Spacer()
                     }
                 }
                 .padding()

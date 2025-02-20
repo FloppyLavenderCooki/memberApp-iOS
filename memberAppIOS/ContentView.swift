@@ -22,7 +22,7 @@ struct ContentView: View {
                     Text("view member information and manage")
                     
                     List(userDataModel.userData) { item in
-                        Text(item.name)
+                        Text(item.id)
                     }
                     .listStyle(.plain)
                     .background(Color(hue: 0.6, saturation: 0.25, brightness: 1))
