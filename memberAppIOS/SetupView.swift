@@ -26,7 +26,7 @@ struct SetupView: View {
                         .frame(maxWidth: 100)
                     
                     Text("Welcome")
-                        .font(.system(size: 36, weight: .bold))
+                        .font(Font.custom("Rubik", size: 36))
                         .foregroundStyle(.textColour)
                     
                     Button(action: {
@@ -43,7 +43,8 @@ struct SetupView: View {
                     }) {
                         Text("Scan Member Card")
                             .frame(maxWidth: .infinity)
-                            .font(.system(size: 20, weight: .bold))
+                            .font(Font.custom("Inter", size: 20))
+                            .bold()
                             .foregroundColor(.textColour)
                             .colorInvert()
                             .padding()
