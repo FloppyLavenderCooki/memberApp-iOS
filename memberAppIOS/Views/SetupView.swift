@@ -26,7 +26,8 @@ struct SetupView: View {
                         .frame(maxWidth: 100)
                     
                     Text("Welcome")
-                        .font(Font.custom("Rubik", size: 36))
+                        .font(Font.custom("Rubik", size: 36, relativeTo: .title))
+                        .bold()
                         .foregroundStyle(.textColour)
                     
                     Button(action: {

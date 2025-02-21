@@ -56,9 +56,22 @@
 		8AB2834A2D5FDEC7009CA44A /* memberAppIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memberAppIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8A10987A2D6810AB00A2FCE9 /* Exceptions for "memberAppIOS" folder in "memberAppIOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8AB2832F2D5FDEC6009CA44A /* memberAppIOS */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8AB283322D5FDEC6009CA44A /* memberAppIOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8A10987A2D6810AB00A2FCE9 /* Exceptions for "memberAppIOS" folder in "memberAppIOS" target */,
+			);
 			path = memberAppIOS;
 			sourceTree = "<group>";
 		};
@@ -253,6 +266,11 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+					"New-1",
+					"New-2",
+				);
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
@@ -489,6 +507,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = memberAppIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Group Two Libraries";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -526,6 +545,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = memberAppIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Group Two Libraries";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
