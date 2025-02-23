@@ -28,6 +28,8 @@ struct libraryUser: Identifiable {
 var getMethod: String = "TYPE"
 var searchData: String = "00000000"
 
+var foundData: libraryUser = libraryUser(id: "")
+
 func getUserData(_ sText: String, _ method: String) {
     getMethod = method
     searchData = sText
@@ -46,6 +48,7 @@ class ViewModel: ObservableObject {
                                                 
                         if getMethod == "NFC" {
                             if searchData == userFound.cardSN {
+                                foundData = userFound
                                 return userFound
                             } else { return libraryUser(id: "nil") }
                         } else if getMethod == "TYPE" {

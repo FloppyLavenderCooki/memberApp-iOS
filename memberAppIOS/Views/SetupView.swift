@@ -26,27 +26,22 @@ struct SetupView: View {
                         .frame(maxWidth: 100)
                     
                     Text("Welcome")
-                        .font(Font.custom("Rubik", size: 36, relativeTo: .title))
+                        .font(Font.custom("Rubik", size: 50, relativeTo: .largeTitle))
                         .bold()
                         .foregroundStyle(.textColour)
                     
                     Button(action: {
+                        canNotNFC = true
                         // scan nfc card. for now, we will skip this and pass ID 0 to ContentView
-                        if !NFCReaderSession.readingAvailable {
-                            canNotNFC = true
-                        } else {
-                            @StateObject var nfcReader = NFCReader()
-                            nfcReader.startScanning()
-                        }
                         
                         // scanning code here, functions in NFCReader.swift
                         
                     }) {
                         Text("Scan Member Card")
-                            .frame(maxWidth: .infinity)
-                            .font(Font.custom("Inter", size: 20))
+                            .font(Font.custom("Inter", size: 25, relativeTo: .caption))
                             .bold()
                             .foregroundColor(.textColour)
+                            .frame(maxWidth: .infinity)
                             .colorInvert()
                             .padding()
                             .background(.cGreen)
@@ -68,6 +63,7 @@ struct SetupView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxWidth: 250)
+                            .padding()
                         Spacer()
                     }
                 }
