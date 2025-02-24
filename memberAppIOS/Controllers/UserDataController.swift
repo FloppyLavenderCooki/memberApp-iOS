@@ -5,6 +5,7 @@
 //  Created by Arav Prasad on 18/02/2025.
 //
 
+import Combine
 import Foundation
 import Firebase
 import FirebaseCore
@@ -71,3 +72,9 @@ class ViewModel: ObservableObject {
         }
     }
 }
+
+func filterData() {
+    
+}
+
+

@@ -39,7 +39,6 @@ struct SetupView: View {
                     }) {
                         Text("Scan Member Card")
                             .font(Font.custom("Inter", size: 25, relativeTo: .caption))
-                            .bold()
                             .foregroundColor(.textColour)
                             .frame(maxWidth: .infinity)
                             .colorInvert()
