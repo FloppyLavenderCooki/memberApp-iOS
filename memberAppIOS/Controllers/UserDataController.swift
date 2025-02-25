@@ -11,6 +11,7 @@ import Firebase
 import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
+import SwiftUI
 
 struct libraryUser: Identifiable {
     var id: String
@@ -30,6 +31,7 @@ var getMethod: String = "TYPE"
 var searchData: String = "00000000"
 
 var foundData: libraryUser = libraryUser(id: "")
+var dataList: [libraryUser] = []
 
 func getUserData(_ sText: String, _ method: String) {
     getMethod = method
@@ -39,7 +41,7 @@ func getUserData(_ sText: String, _ method: String) {
 class ViewModel: ObservableObject {
     @Published var userData = [libraryUser]()
     
-    func getData() {
+    func getData(_ setupState: SetupState) {
         let db = Firestore.firestore()
         db.collection("Users").getDocuments { (snapshot, error) in
             if error == nil {
@@ -65,8 +67,11 @@ class ViewModel: ObservableObject {
                 if self.userData[0].id == "nil" {
                     print("couldn't find user")
                 } else {
-                    print("received data: \(self.userData)")
-                    // send data to content
+                    dataList = self.userData
+                    filterData()
+
+//                    @EnvironmentObject var setupState: SetupState
+                    setupState.setupComplete = true // error
                 }
             }
         }
@@ -74,7 +79,11 @@ class ViewModel: ObservableObject {
 }
 
 func filterData() {
-    
+    for i in dataList {
+        if i.id == "nil" {
+            dataList.removeAll { $0.id == "nil" }
+        }
+    }
 }
 
 

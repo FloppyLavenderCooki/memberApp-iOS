@@ -21,18 +21,22 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct memberAppIOSApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var setupState = SetupState()
     
     var body: some Scene {
         WindowGroup("SetupView", id: "Setup") {
             SetupView()
+                .environmentObject(setupState)
         }
         
         WindowGroup("ContentView", id: "Content") {
             ContentView()
+                .environmentObject(SetupState())
         }
         
         WindowGroup("SettingsView", id: "Settings") {
             SettingsView()
+                .environmentObject(SetupState())
         }
     }
 }

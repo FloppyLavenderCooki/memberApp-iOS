@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var userDataModel = ViewModel()
+    @EnvironmentObject var setupState: SetupState
+    @StateObject private var viewModel: ViewModel = ViewModel()
     
     var body: some View {
         NavigationView {
@@ -21,25 +22,29 @@ struct ContentView: View {
                         .foregroundStyle(.tint)
                     Text("view member information and manage")
                     
-                    List(userDataModel.userData) { item in
+                    List(dataList) { item in
                         Text(item.id)
                     }
                     .listStyle(.plain)
                     .background(Color(hue: 0.6, saturation: 0.25, brightness: 1))
                     .clipped()
                     .font(Font.custom("Rubik", size: 30))
+                    
+                    Button("DEBUG RESET DATA") {
+                        setupState.setupComplete = false
+                        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+                    }
                 }
                 .padding()
             }
         }
+        .onAppear {
+            viewModel.getData(setupState)
+        }
     }
-    
-    init() {
-        userDataModel.getData()
-    }
-    
 }
 
 #Preview {
     ContentView()
+        .environmentObject(SetupState())
 }

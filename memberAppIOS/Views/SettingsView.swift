@@ -22,4 +22,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .environmentObject(SetupState())
 }
