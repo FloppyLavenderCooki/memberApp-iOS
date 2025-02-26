@@ -69,9 +69,7 @@ class ViewModel: ObservableObject {
                 } else {
                     dataList = self.userData
                     filterData()
-
-//                    @EnvironmentObject var setupState: SetupState
-                    setupState.setupComplete = true // error
+                    setupState.setupComplete = true
                 }
             }
         }
