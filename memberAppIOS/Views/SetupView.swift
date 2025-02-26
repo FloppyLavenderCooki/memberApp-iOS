@@ -11,6 +11,10 @@ class SetupState: ObservableObject {
     @AppStorage("setupComplete") var setupComplete: Bool = false {
         willSet { objectWillChange.send() }
     }
+    
+    @AppStorage("errorOccur") var errorOccur: Bool = false {
+        willSet { objectWillChange.send() }
+    }
 }
 
 struct SetupView: View {
@@ -72,6 +76,9 @@ struct SetupView: View {
                             }
                             Button("Cancel", role: .cancel) {}
                             
+                        }
+                        .alert("Couldn't find user", isPresented: $setupState.errorOccur) {
+                            Button("OK", role: .cancel) { setupState.errorOccur = false }
                         }
                         
                         Spacer()

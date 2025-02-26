@@ -66,8 +66,16 @@ class ViewModel: ObservableObject {
                 
                 dataList = self.userData
                 filterData()
-                setupState.setupComplete = true
-                displayUser = dataList[0]
+                if !dataList.isEmpty {
+                    if dataList[0].id != "nil" {
+                        displayUser = dataList[0]
+                        setupState.setupComplete = true
+                    } else {
+                        setupState.errorOccur = true
+                    }
+                } else {
+                    setupState.errorOccur = true
+                }
             }
         }
     }
