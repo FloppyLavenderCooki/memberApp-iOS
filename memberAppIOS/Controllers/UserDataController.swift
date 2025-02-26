@@ -64,13 +64,10 @@ class ViewModel: ObservableObject {
                     }
                 }
                 
-                if self.userData[0].id == "nil" {
-                    print("couldn't find user")
-                } else {
-                    dataList = self.userData
-                    filterData()
-                    setupState.setupComplete = true
-                }
+                dataList = self.userData
+                filterData()
+                setupState.setupComplete = true
+                displayUser = dataList[0]
             }
         }
     }

@@ -51,12 +51,16 @@ struct SetupView: View {
                             
                         }) {
                             Text("Scan Member Card")
-                                .font(Font.custom("Inter", size: 25, relativeTo: .caption))
-                                .foregroundColor(.textColour)
                                 .frame(maxWidth: .infinity)
-                                .colorInvert()
+                                .font(Font.custom("Inter", size: 25, relativeTo: .caption))
+                                .foregroundStyle(.textColour)
+                                .fontWeight(.heavy)
                                 .padding()
-                                .background(.cGreen)
+                                .background(Color.white.opacity(0.5))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(.white, lineWidth: 7.5)
+                                )
                                 .cornerRadius(20)
                         }
                         .alert("Your device does not support NFC!", isPresented: $canNotNFC) {
