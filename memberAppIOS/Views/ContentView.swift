@@ -31,6 +31,39 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.secondary)
                 
+                HStack {
+                    Image(.cardFront)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: 100)
+                                        
+                    VStack(alignment: .leading) {
+                        Spacer()
+                        VStack(alignment: .leading) {
+                            Text("ID: \(displayUser.id)")
+                                .font(Font.custom("Inter", size: 21, relativeTo: .caption))
+                                .multilineTextAlignment(.leading)
+                                .fontWeight(.heavy)
+                                .padding(.top)
+                            
+                            Text(displayUser.cardSN)
+                                .font(Font.custom("Inter", size: 16, relativeTo: .caption))
+                                .multilineTextAlignment(.leading)
+                                .fontWeight(.bold)
+                        }
+                        Spacer()
+                        Text("Exp: \(displayUser.expiry)")
+                            .font(Font.custom("Inter", size: 15, relativeTo: .caption))
+                            .multilineTextAlignment(.leading)
+                            .padding(.bottom)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 159)
+                    
+                    
+                }
+                .background(Color(hue: 0.55, saturation: 0.15, brightness: 1))
+                .cornerRadius(6)
+                
                 Spacer()
                 
                 Button("DEBUG RESET DATA") {
