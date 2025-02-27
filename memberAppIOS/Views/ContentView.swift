@@ -7,21 +7,19 @@
 
 import SwiftUI
 
-var displayUser: libraryUser = libraryUser(id: "nil", name: "error")
+var displayUser: libraryUser = libraryUser(id: "nil", level: 3, exp: 69, name: "error")
 
 var firstNameText: String = "User"
 var welcomeText: String = "Welcome"
 var subtitleText: String = "Back already?"
 
-var expValue: Float = 69
-var expReq: Float = 100
-var levelText: Int = 3
+var expReqText: Float = 100 // CHANGE LATER
 
 struct ContentView: View {
     @EnvironmentObject var setupState: SetupState
     @StateObject private var viewModel: ViewModel = ViewModel()
     
-    @State private var expText = expValue / expReq
+    @State private var expText = Float(displayUser.exp) / expReqText
     
     var body: some View {
         NavigationView {
@@ -72,19 +70,19 @@ struct ContentView: View {
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        ProgressView(value: expText)
-                        Text("\(Int(expValue))/\(Int(expReq)) XP")
+                        ProgressBarView(progress: CGFloat(expText))
+                            .frame(maxWidth: 250)
+                        Text("\(Int(displayUser.exp))/\(Int(expReqText)) XP")
                             .font(Font.custom("Inter", size: 20, relativeTo: .caption))
                             .fontWeight(.bold)
                     }
-                    VStack {
-                        Text("\(levelText)")
-                            .font(Font.custom("Rubik", size: 50))
-                            .fontWeight(.heavy)
-                            .font(.system(size: 500))
-                            .minimumScaleFactor(0.01)
-                    }
+                    Spacer()
+                    Text("\(displayUser.level)")
+                        .font(Font.custom("Rubik", size: 75))
+                        .fontWeight(.heavy)
+                        .foregroundStyle(.cbBlue)
                 }
+                .frame(maxHeight: 50)
                 
                 
                 
