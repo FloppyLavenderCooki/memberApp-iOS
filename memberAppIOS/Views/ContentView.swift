@@ -13,9 +13,15 @@ var firstNameText: String = "User"
 var welcomeText: String = "Welcome"
 var subtitleText: String = "Back already?"
 
+var expValue: Float = 69
+var expReq: Float = 100
+var levelText: Int = 3
+
 struct ContentView: View {
     @EnvironmentObject var setupState: SetupState
     @StateObject private var viewModel: ViewModel = ViewModel()
+    
+    @State private var expText = expValue / expReq
     
     var body: some View {
         NavigationView {
@@ -52,7 +58,7 @@ struct ContentView: View {
                                 .fontWeight(.bold)
                         }
                         Spacer()
-                        Text("Exp: \(displayUser.expiry)")
+                        Text("Expires: \(displayUser.expiry)")
                             .font(Font.custom("Inter", size: 15, relativeTo: .caption))
                             .multilineTextAlignment(.leading)
                             .padding(.bottom)
@@ -63,6 +69,24 @@ struct ContentView: View {
                 }
                 .background(Color(hue: 0.55, saturation: 0.15, brightness: 1))
                 .cornerRadius(6)
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        ProgressView(value: expText)
+                        Text("\(Int(expValue))/\(Int(expReq)) XP")
+                            .font(Font.custom("Inter", size: 20, relativeTo: .caption))
+                            .fontWeight(.bold)
+                    }
+                    VStack {
+                        Text("\(levelText)")
+                            .font(Font.custom("Rubik", size: 50))
+                            .fontWeight(.heavy)
+                            .font(.system(size: 500))
+                            .minimumScaleFactor(0.01)
+                    }
+                }
+                
+                
                 
                 Spacer()
                 
