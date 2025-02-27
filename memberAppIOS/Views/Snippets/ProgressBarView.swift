@@ -20,7 +20,7 @@ struct ProgressBarView: View {
                     .cornerRadius(7.5)
                 Rectangle()
                     .frame(
-                        width: min(progress * geometry.size.width,
+                        width: min(abs(progress) * geometry.size.width,
                                    geometry.size.width),
                         height: 20
                     )
@@ -29,7 +29,7 @@ struct ProgressBarView: View {
                 
                 Image(.progressionStripes)
                     .resizable(resizingMode: .tile)
-                    .frame(maxWidth: progress * geometry.size.width)
+                    .frame(maxWidth: abs(progress) * geometry.size.width)
             }
         }
     }

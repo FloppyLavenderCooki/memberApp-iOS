@@ -19,7 +19,7 @@ struct ContentView: View {
     @EnvironmentObject var setupState: SetupState
     @StateObject private var viewModel: ViewModel = ViewModel()
     
-    @State private var expText = Float(displayUser.exp) / expReqText
+    @State private var expText = Float(abs(displayUser.exp)) / expReqText
     
     var body: some View {
         NavigationView {
