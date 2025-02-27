@@ -16,13 +16,14 @@ var levelsExp: [Int] = [
     1000
 ]
 
-// if l = 1, return 2 req
-
 func getExpRequirement(_ user: libraryUser) -> Int {
     let userXP = user.exp
     
     for i in levelsExp.sorted() {
-        if i > userXP {
+        if i > abs(userXP) {
+            if userXP < 0 {
+                return -i
+            }
             return i
         }
     }

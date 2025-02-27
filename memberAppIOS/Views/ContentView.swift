@@ -68,7 +68,7 @@ struct ContentView: View {
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        ProgressBarView(progress: CGFloat(Float(displayUser.exp) / expReqText))
+                        ProgressBarView(progress: CGFloat(Float(displayUser.exp) / abs(expReqText)))
                             .frame(maxWidth: 250)
                         Text("\(Int(displayUser.exp))/\(Int(expReqText)) XP")
                             .font(Font.custom("Inter", size: 20, relativeTo: .caption))
