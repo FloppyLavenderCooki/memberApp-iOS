@@ -13,14 +13,12 @@ var firstNameText: String = "User"
 var welcomeText: String = "Welcome"
 var subtitleText: String = "Back already?"
 
-var expReqText: Float = 100 // CHANGE LATER TO USE SystemDataController value
-
 struct ContentView: View {
     @EnvironmentObject var setupState: SetupState
     @StateObject private var viewModel: ViewModel = ViewModel()
     
-    @State private var expText = Float(displayUser.exp) / expReqText
-    
+    @State var expReqText: Float = Float(getExpRequirement(displayUser))
+
     var body: some View {
         NavigationView {
             VStack {
@@ -70,7 +68,7 @@ struct ContentView: View {
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        ProgressBarView(progress: CGFloat(expText))
+                        ProgressBarView(progress: CGFloat(Float(displayUser.exp) / expReqText))
                             .frame(maxWidth: 250)
                         Text("\(Int(displayUser.exp))/\(Int(expReqText)) XP")
                             .font(Font.custom("Inter", size: 20, relativeTo: .caption))
