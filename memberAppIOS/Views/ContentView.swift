@@ -13,13 +13,13 @@ var firstNameText: String = "User"
 var welcomeText: String = "Welcome"
 var subtitleText: String = "Back already?"
 
-var expReqText: Float = 100 // CHANGE LATER
+var expReqText: Float = 100 // CHANGE LATER TO USE SystemDataController value
 
 struct ContentView: View {
     @EnvironmentObject var setupState: SetupState
     @StateObject private var viewModel: ViewModel = ViewModel()
     
-    @State private var expText = Float(abs(displayUser.exp)) / expReqText
+    @State private var expText = Float(displayUser.exp) / expReqText
     
     var body: some View {
         NavigationView {

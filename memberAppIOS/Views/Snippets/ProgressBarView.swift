@@ -12,16 +12,16 @@ struct ProgressBarView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ZStack(alignment: .leading) {
+            ZStack(alignment: progress < 0 ? .trailing : .leading) {
                 Rectangle()
                     .frame(width: geometry.size.width, height: 20)
                     .opacity(0.2)
                     .foregroundColor(.gray)
                     .cornerRadius(7.5)
+                
                 Rectangle()
                     .frame(
-                        width: min(abs(progress) * geometry.size.width,
-                                   geometry.size.width),
+                        width: min(abs(progress) * geometry.size.width, geometry.size.width),
                         height: 20
                     )
                     .foregroundColor(.cbBlue)
@@ -29,7 +29,7 @@ struct ProgressBarView: View {
                 
                 Image(.progressionStripes)
                     .resizable(resizingMode: .tile)
-                    .frame(maxWidth: abs(progress) * geometry.size.width)
+                    .frame(width: abs(progress) * geometry.size.width)
             }
         }
     }
