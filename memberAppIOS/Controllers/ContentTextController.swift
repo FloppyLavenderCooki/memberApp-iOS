@@ -22,7 +22,6 @@ var greetings: [String] = [
     "Salutations",
     "What's up",
     "Welcome back",
-    "Glad you're here",
     "Ahoy there",
     "Hello again",
     "Hi there",
