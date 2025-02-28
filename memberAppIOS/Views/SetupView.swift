@@ -4,6 +4,8 @@
 //
 //  Created by Arav Prasad on 15/02/2025.
 //
+// Setup the app
+
 import SwiftUI
 import CoreNFC
 
@@ -30,7 +32,7 @@ struct SetupView: View {
             ContentView()
             
         } else {
-            NavigationView {
+            NavigationStack {
                 ZStack {
                     Color.cbBlue
                         .ignoresSafeArea()

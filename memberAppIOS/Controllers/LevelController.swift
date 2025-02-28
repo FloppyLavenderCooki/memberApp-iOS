@@ -4,6 +4,7 @@
 //
 //  Created by Arav Prasad on 28/02/2025.
 //
+// Manage level status based on exp
 
 import Foundation
 
@@ -30,8 +31,6 @@ func getExpRequirement(_ user: libraryUser) -> Int {
     return 0
 }
 
-
-
-
-
-
+func getLevel(_ user: libraryUser) -> Int {
+    return levelsExp.firstIndex(of: getExpRequirement(user)) ?? 0
+}

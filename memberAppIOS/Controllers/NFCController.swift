@@ -4,6 +4,7 @@
 //
 //  Created by Arav Prasad on 15/02/2025.
 //
+// Manage NFC related tasks on the device
 
 import CoreNFC
 

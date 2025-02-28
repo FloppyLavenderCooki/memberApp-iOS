@@ -4,10 +4,11 @@
 //
 //  Created by Arav Prasad on 15/02/2025.
 //
+// Main View
 
 import SwiftUI
 
-var displayUser: libraryUser = libraryUser(id: "nil", level: 3, exp: 69, name: "error")
+var displayUser: libraryUser = libraryUser(id: "nil", exp: 70, name: "error")
 
 var firstNameText: String = "User"
 var welcomeText: String = "Welcome"
@@ -20,7 +21,7 @@ struct ContentView: View {
     @State var expReqText: Float = Float(getExpRequirement(displayUser))
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Text("\(welcomeText) \(firstNameText)!")
                     .font(Font.custom("Rubik", size: 50, relativeTo: .largeTitle))
@@ -75,7 +76,7 @@ struct ContentView: View {
                             .fontWeight(.bold)
                     }
                     Spacer()
-                    Text("\(displayUser.level)")
+                    Text("\(getLevel(displayUser))")
                         .font(Font.custom("Rubik", size: 75))
                         .fontWeight(.heavy)
                         .foregroundStyle(.cbBlue)

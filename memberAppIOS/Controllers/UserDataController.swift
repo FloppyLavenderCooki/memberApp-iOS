@@ -4,6 +4,7 @@
 //
 //  Created by Arav Prasad on 18/02/2025.
 //
+// Get user data
 
 import Combine
 import Foundation
@@ -16,11 +17,9 @@ import SwiftUI
 struct libraryUser: Identifiable {
     var id: String
     
-    var books: [String] = []
-    var overDue: [String] = []
+    var books: String = ""
     var cardSN: String = ""
     var city: String = ""
-    var level: Int = 0
     var exp: Int = 0
     var name: String = ""
     var password: String = ""
@@ -47,7 +46,7 @@ class ViewModel: ObservableObject {
             if error == nil {
                 if let snapshot = snapshot {
                     self.userData = snapshot.documents.map { document in
-                        let userFound =  libraryUser(id: document.documentID, books: document["Books"] as? [String] ?? [], overDue: document["Overdue"] as? [String] ?? [], cardSN: document["CardSN"] as? String ?? "", city: document["City"] as? String ?? "", level: document["Level"] as? Int ?? 0, exp: document["Exp"] as? Int ?? 0, name: document["Name"] as? String ?? "", password: document["Password"] as? String ?? "", expiry: document["Expiry"] as? String ?? "")
+                        let userFound =  libraryUser(id: document.documentID, books: document["Books"] as? String ?? "", cardSN: document["CardSN"] as? String ?? "", city: document["City"] as? String ?? "", exp: document["Exp"] as? Int ?? 0, name: document["Name"] as? String ?? "", password: document["Password"] as? String ?? "", expiry: document["Expiry"] as? String ?? "")
                                                 
                         if getMethod == "NFC" {
                             if searchData == userFound.cardSN {
