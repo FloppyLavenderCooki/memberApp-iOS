@@ -82,16 +82,103 @@ struct ContentView: View {
                         .foregroundStyle(.cbBlue)
                 }
                 .frame(maxHeight: 50)
+                .padding(.bottom)
                 
-                
+                Button(action: {
+                    
+                }) {
+                    HStack {
+                        Text("View Books")
+                            .font(Font.custom("Inter", size: 25))
+                            .foregroundStyle(.cbBlue)
+                            .fontWeight(.medium)
+                            .padding()
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .frame(width: 10, height: 20)
+                            .padding()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 20)
+                }
+                .padding()
+                .background(Color(hue: 0.55, saturation: 0.15, brightness: 1))
+                .cornerRadius(20)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.cbBlue, lineWidth: 7.5)
+                )
+                Button(action: {
+                    
+                }) {
+                    HStack {
+                        Text("Catalog")
+                            .font(Font.custom("Inter", size: 25))
+                            .foregroundStyle(.cbBlue)
+                            .fontWeight(.medium)
+                            .padding()
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .frame(width: 10, height: 20)
+                            .padding()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 20)
+                }
+                .padding()
+                .background(Color(hue: 0.55, saturation: 0.15, brightness: 1))
+                .cornerRadius(20)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.cbBlue, lineWidth: 7.5)
+                )
+                Button(action: {
+                    
+                }) {
+                    HStack {
+                        Text("Settings")
+                            .font(Font.custom("Inter", size: 25))
+                            .foregroundStyle(.cbBlue)
+                            .fontWeight(.medium)
+                            .padding()
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .frame(width: 10, height: 20)
+                            .padding()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 20)
+                }
+                .padding()
+                .background(Color(hue: 0.55, saturation: 0.15, brightness: 1))
+                .cornerRadius(20)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.cbBlue, lineWidth: 7.5)
+                )
                 
                 Spacer()
                 
-                Button("DEBUG RESET DATA") {
+                Button(action: {
                     setupState.setupComplete = false
                     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+                }) {
+                    Text("DEBUG RESET DATA")
+                        .frame(maxWidth: .infinity)
+                        .font(Font.custom("Inter", size: 15, relativeTo: .caption))
+                        .foregroundStyle(.textColour)
+                        .fontWeight(.heavy)
+                        .padding()
+                        .background(Color.red.opacity(0.5))
+                        .cornerRadius(20)
                 }
-                .padding()
+                
             }
             .padding()
         }
