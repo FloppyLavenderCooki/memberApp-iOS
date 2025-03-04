@@ -8,33 +8,50 @@
 
 import CoreNFC
 
-class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
-    private var session: NFCNDEFReaderSession?
+class NFCReader: NSObject, NFCNDEFReaderSessionDelegate {
     
-    func startScanning() { // start
-        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
-        session?.alertMessage = "Hold your device near your card."
-        session?.begin()
+    var nfcSession: NFCNDEFReaderSession?
+    
+    // Function to start scanning
+    func startScanning(completion: @escaping (String?) -> Void) {
+        // Create an NFC reader session
+        nfcSession = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
+        
+        // Start scanning
+        nfcSession?.begin()
+        
+        // The completion handler will be called when data is read
+        self.completionHandler = completion
     }
     
-    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) { // invalidate
-        // Handle errors or session invalidation here.
-        print("NFC Session invalidated: \(error.localizedDescription)")
-    }
+    // Completion handler to return the data
+    private var completionHandler: ((String?) -> Void)?
     
-    
-    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) { // payload
-        for message in messages {
-            for record in message.records {
-                if let payloadText = String(data: record.payload, encoding: .utf8) {
-                    DispatchQueue.main.async {
-                        var cardResult = payloadText
-                        
-                        getUserData(payloadText, "NFC")
-                    }
-                }
+    // Delegate method that gets called when a tag is discovered
+    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+        // Get the first message
+        if let firstMessage = messages.first {
+            // Convert the first record of the message to a string
+            if let payload = firstMessage.records.first?.payload, let message = String(data: payload, encoding: .utf8) {
+                // Return the message to the caller
+                completionHandler?(message)
             }
-            
         }
     }
+    
+    // Delegate method called when the session is invalidated (either success or failure)
+    func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
+        // Optionally handle when the session becomes active
+    }
+    
+    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error?) {
+        // Handle session errors
+        if let error = error {
+            print("NFC session invalidated with error: \(error)")
+        }
+        
+        // Return nil if no data was read
+        completionHandler?(nil)
+    }
 }
+

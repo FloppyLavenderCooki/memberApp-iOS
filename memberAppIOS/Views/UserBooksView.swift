@@ -15,7 +15,7 @@ struct IssuedView: View {
         }
         .onAppear() {
             bookStringToData(displayUser.books)
-        }
+        }.preferredColorScheme(.light)
     }
 }
 

@@ -26,6 +26,7 @@ struct SetupView: View {
     
     @EnvironmentObject var setupState: SetupState
     @StateObject private var viewModel: ViewModel = ViewModel()
+    let nfcReader: NFCReader = NFCReader()
     
     var body: some View {
         if setupState.setupComplete {
@@ -50,10 +51,19 @@ struct SetupView: View {
                             .foregroundStyle(.textColour)
                         
                         Button(action: {
-                            canNotNFC = true
-                            // scan nfc card. for now, we will skip this and pass ID 0 to ContentView
-                            
-                            // scanning code here, functions in NFCReader.swift
+                            if NFCNDEFReaderSession.readingAvailable {
+                                nfcReader.startScanning { (data) in
+                                    if let scannedData = data {
+                                        print("Scanned Data: \(scannedData)")
+                                        // pass
+                                        
+                                    } else {
+                                        print("No data detected or error occurred")
+                                    }
+                                }
+                            } else {
+                                canNotNFC = true
+                            }
                             
                         }) {
                             Text("Scan Member Card")
@@ -95,7 +105,7 @@ struct SetupView: View {
                     }
                     .padding()
                 }
-            }
+            }.preferredColorScheme(.light)
         }
     }
 }

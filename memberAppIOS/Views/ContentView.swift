@@ -39,6 +39,8 @@ struct ContentView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: 100)
+                    
+                    Spacer()
                                         
                     VStack(alignment: .leading) {
                         Spacer()
@@ -182,6 +184,7 @@ struct ContentView: View {
             }
             .padding()
         }
+        .preferredColorScheme(.light)
         .safeAreaInset(edge: .top) {
             Color.cbBlue
                 .frame(height: 75)
