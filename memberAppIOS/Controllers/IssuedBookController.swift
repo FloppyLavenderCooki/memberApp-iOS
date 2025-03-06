@@ -8,16 +8,26 @@
 
 import Foundation
 
-func bookStringToData(_ jsonString: String) {
+
+var books: [Book]?
+
+struct Book: Codable, Identifiable {
+    let id: String
+    let due: String
+}
+
+func bookStringToData(_ jsonString: String) -> [Book]? {
+    // json string is a list of dictionaries containing key:value of string:string (conforms to date)
+    
     let data = jsonString.data(using: .utf8)!
     
     do {
-        if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>] {
-           print(jsonArray)
-        } else {
-            print("bad json")
-        }
-    } catch let error as NSError {
-        print(error)
+        let books = try JSONDecoder().decode([Book].self, from: data)
+        return books
+    } catch {
+        print("JSON Decoding Error: \(error)")
+        return nil
     }
 }
+
+

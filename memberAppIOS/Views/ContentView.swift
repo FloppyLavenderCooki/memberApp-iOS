@@ -13,6 +13,7 @@ var displayUser: libraryUser = libraryUser(id: "nil", exp: 70, name: "error")
 var firstNameText: String = "User"
 var welcomeText: String = "Welcome"
 var subtitleText: String = "Back already?"
+var suffixText: String = "!"
 
 struct ContentView: View {
     @EnvironmentObject var setupState: SetupState
@@ -21,9 +22,10 @@ struct ContentView: View {
     @State var expReqText: Float = Float(getExpRequirement(displayUser))
 
     var body: some View {
-        NavigationStack {
+        
+        NavigationView {
             VStack {
-                Text("\(welcomeText) \(firstNameText)!")
+                Text("\(welcomeText), \(firstNameText)\(suffixText)")
                     .font(Font.custom("Rubik", size: 50, relativeTo: .largeTitle))
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.black)
@@ -86,18 +88,16 @@ struct ContentView: View {
                 .frame(maxHeight: 50)
                 .padding(.bottom)
                 
-                Button(action: {
-                    
-                }) {
+                NavigationLink(destination: IssuedView(books: bookStringToData(displayUser.books) ?? [Book(id: "", due: "")])) {
                     HStack {
-                        Text("View Books")
+                        Text("Issued Books")
                             .font(Font.custom("Inter", size: 25))
                             .foregroundStyle(.cbBlue)
                             .fontWeight(.medium)
                             .padding()
-                        
+
                         Spacer()
-                        
+
                         Image(systemName: "chevron.right")
                             .resizable()
                             .frame(width: 10, height: 20)
@@ -107,11 +107,19 @@ struct ContentView: View {
                 }
                 .padding()
                 .background(Color(hue: 0.55, saturation: 0.15, brightness: 1))
-                .cornerRadius(20)
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 20,
+                        bottomLeadingRadius: 0,
+                        bottomTrailingRadius: 0,
+                        topTrailingRadius: 20
+                    )
+                )
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(.cbBlue, lineWidth: 7.5)
                 )
+                
                 Button(action: {
                     
                 }) {

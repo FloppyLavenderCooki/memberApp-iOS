@@ -9,16 +9,18 @@
 import SwiftUI
 
 struct IssuedView: View {
+    let books: [Book]
+    
     var body: some View {
-        NavigationStack {
-            
+        NavigationView {
+            List(books) { book in
+                Text(book.id)
+            }
         }
-        .onAppear() {
-            bookStringToData(displayUser.books)
-        }.preferredColorScheme(.light)
+        .preferredColorScheme(.light)
     }
 }
 
 #Preview {
-    IssuedView()
+    IssuedView(books: [Book(id: "", due: "")])
 }

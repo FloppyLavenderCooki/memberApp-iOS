@@ -8,31 +8,31 @@
 
 import Foundation
 
-var greetings: [String] = [
-    "Hello",
-    "Welcome",
-    "Hi",
-    "Hey",
-    "Greetings",
-    "Howdy",
-    "Ahoy",
-    "Yo",
-    "Hiya",
-    "Hey there",
-    "Good day",
-    "Salutations",
-    "What's up",
-    "Welcome back",
-    "Ahoy there",
-    "Hello again",
-    "Hi there",
-    "Welcome in",
-    "What's new",
-    "Howdy partner",
-    "Sup",
-    "Heya",
-    "G'day",
-    "Well hello",
+var greetings: [String:String] = [
+    "Hello":"!",
+    "Welcome":"!",
+    "Hi":"!",
+    "Hey":"!",
+    "Greetings":"!",
+    "Howdy":"!",
+    "Ahoy":"!",
+    "Yo":"!",
+    "Hiya":"!",
+    "Hey there":"!",
+    "Good day":"!",
+    "Salutations":"!",
+    "What's up":"?",
+    "Welcome back":"!",
+    "Ahoy there":"!",
+    "Hello again":"!",
+    "Hi there":"!",
+    "Welcome in":"!",
+    "What's new":"?",
+    "Howdy partner":"!",
+    "Sup":"?",
+    "Heya":"!",
+    "G'day":"!",
+    "Well hello":"!",
 ]
 
 
@@ -87,8 +87,11 @@ var subtitles: [String] = [
 
 
 func makeDisplayText() {
-    welcomeText = greetings.randomElement() ?? "Hello"
+    var greetingSelected = greetings.randomElement()
+    
+    welcomeText = greetingSelected?.key ?? "Hello"
     subtitleText = subtitles.randomElement() ?? "Glad to see you."
+    suffixText = greetingSelected?.value ?? "!"
     
     firstNameText = String(displayUser.name.split(separator: " ").first ?? "User")
 }
