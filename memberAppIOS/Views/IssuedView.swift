@@ -9,17 +9,66 @@
 import SwiftUI
 
 struct IssuedView: View {
+    @StateObject var bookModel: BookModel = BookModel()
+    
     let books: [Book]
+    
     var body: some View {
-        NavigationView {
-            List(books) { book in
-                HStack {
-                    Image(.noCover)
-                        .resizable()
-                        .frame(width: 100, height: 150)
-                        .scaledToFit()
-                    
-                    Text(book.id)
+        VStack {
+            if books.isEmpty {
+                Text("No books :(")
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .padding()
+            } else {
+                List(books) { book in
+                    if let catBook = bookDataList.first(where: { $0.id == book.id }) {
+                        HStack {
+                            AsyncImage(url: URL(string: catBook.imageLink)) { phase in
+                                switch phase {
+                                case .empty:
+                                    Image(.noCover)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 150)
+                                    
+                                case .success(let image):
+                                    image.resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 150)
+                                    
+                                case .failure:
+                                    Image(.noCover)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 150)
+                                    
+                                @unknown default:
+                                    Image(.noCover)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 150)
+                                }
+                            }
+                            
+                            VStack(alignment: .leading) {
+                                Text(catBook.title)
+                                    .font(.headline)
+                                HStack {
+                                    Text(catBook.author)
+                                        .font(.subheadline)
+                                    
+                                    Spacer()
+                                    
+                                    Text("ID: \(catBook.id)")
+                                        .font(.subheadline)
+                                }
+                                Text("Due: \(book.due)")
+                                    .font(.caption)
+                                    .foregroundColor(.yellow)
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -28,21 +77,6 @@ struct IssuedView: View {
 }
 
 #Preview {
-    IssuedView(books: [Book(id: "", due: "")])
+    IssuedView(books: [])
 }
 
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                } else {
-                    self?.image = UIImage(resource: .noCover)
-                }
-            }
-        }
-    }
-}

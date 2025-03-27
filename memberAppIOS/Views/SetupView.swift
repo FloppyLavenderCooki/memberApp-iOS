@@ -26,6 +26,8 @@ struct SetupView: View {
     
     @EnvironmentObject var setupState: SetupState
     @StateObject private var viewModel: ViewModel = ViewModel()
+    @StateObject private var bookModel: BookModel = BookModel()
+    
     let nfcReader: NFCReader = NFCReader()
     
     var body: some View {
@@ -85,6 +87,8 @@ struct SetupView: View {
                             Button("OK") {
                                 getUserData(userID, "TYPE")
                                 viewModel.getData(setupState)
+                                
+                                bookModel.getData(setupState)
                             }
                             Button("Cancel", role: .cancel) {}
                             

@@ -18,6 +18,7 @@ var suffixText: String = "!"
 struct ContentView: View {
     @EnvironmentObject var setupState: SetupState
     @StateObject private var viewModel: ViewModel = ViewModel()
+    @StateObject private var bookModel: BookModel = BookModel()
     
     @State var expReqText: Float = Float(getExpRequirement(displayUser))
 
@@ -203,6 +204,7 @@ struct ContentView: View {
         }
         .onAppear {
             viewModel.getData(setupState)
+            bookModel.getData(setupState)
             makeDisplayText()
         }
     }
