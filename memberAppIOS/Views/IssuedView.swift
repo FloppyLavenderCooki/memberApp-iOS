@@ -17,7 +17,7 @@ struct IssuedView: View {
         VStack {
             if books.isEmpty {
                 Text("No books :(")
-                    .font(.headline)
+                    .font(.largeTitle)
                     .foregroundColor(.black)
                     .padding()
             } else {
