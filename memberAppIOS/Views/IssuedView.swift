@@ -23,49 +23,53 @@ struct IssuedView: View {
             } else {
                 List(books) { book in
                     if let catBook = bookDataList.first(where: { $0.id == book.id }) {
-                        HStack {
-                            AsyncImage(url: URL(string: catBook.imageLink)) { phase in
-                                switch phase {
-                                case .empty:
-                                    Image(.noCover)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 150)
-                                    
-                                case .success(let image):
-                                    image.resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 150)
-                                    
-                                case .failure:
-                                    Image(.noCover)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 150)
-                                    
-                                @unknown default:
-                                    Image(.noCover)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 150)
+                        NavigationLink(destination:
+                            BookContextView(book: catBook)
+                        ) {
+                            HStack {
+                                AsyncImage(url: URL(string: catBook.imageLink)) { phase in
+                                    switch phase {
+                                    case .empty:
+                                        Image(.noCover)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 150)
+                                        
+                                    case .success(let image):
+                                        image.resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 150)
+                                        
+                                    case .failure:
+                                        Image(.noCover)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 150)
+                                        
+                                    @unknown default:
+                                        Image(.noCover)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 150)
+                                    }
                                 }
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text(catBook.title)
-                                    .font(.headline)
-                                HStack {
-                                    Text(catBook.author)
-                                        .font(.subheadline)
-                                    
-                                    Spacer()
-                                    
-                                    Text("ID: \(catBook.id)")
-                                        .font(.subheadline)
+                                
+                                VStack(alignment: .leading) {
+                                    Text(catBook.title)
+                                        .font(.headline)
+                                    HStack {
+                                        Text(catBook.author)
+                                            .font(.subheadline)
+                                        
+                                        Spacer()
+                                        
+                                        Text("ID: \(catBook.id)")
+                                            .font(.subheadline)
+                                    }
+                                    Text("Due: \(book.due)")
+                                        .font(.caption)
+                                        .foregroundColor(.yellow)
                                 }
-                                Text("Due: \(book.due)")
-                                    .font(.caption)
-                                    .foregroundColor(.yellow)
                             }
                         }
                     }
