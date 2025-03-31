@@ -57,12 +57,7 @@ struct BookContextView: View {
                             .font(.caption)
                             .padding()
                     }
-
-                    
-                    if "G2-\(displayUser.id)" == book.issued {
-                        
-                    }
-                    
+                
                     Text(book.description)
                         .padding()
                 }
