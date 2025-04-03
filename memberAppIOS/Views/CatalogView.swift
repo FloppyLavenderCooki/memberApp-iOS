@@ -10,11 +10,14 @@ import SwiftUI
 
 struct CatalogView: View {
     @StateObject var bookModel: BookModel = BookModel()
+    
+    var books: [Book]
+    
     var body: some View {
         VStack {
             List(bookDataList) { catBook in
                 NavigationLink(destination:
-                    BookContextView(book: catBook)
+                                BookContextView(bks: books, book: catBook)
                 ) {
                     HStack {
                         AsyncImage(url: URL(string: catBook.imageLink)) { phase in
@@ -66,5 +69,5 @@ struct CatalogView: View {
 }
 
 #Preview {
-    CatalogView()
+    CatalogView(books: [Book(id: "", due: "")])
 }

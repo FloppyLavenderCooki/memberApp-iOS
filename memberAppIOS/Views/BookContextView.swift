@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct BookContextView: View {
+    @StateObject var bookModel: BookModel = BookModel()
+    
+    let bks: [Book]
+    
     @State var book: libraryBook
     
     var issued = 2
@@ -45,27 +49,43 @@ struct BookContextView: View {
                             .frame(width: 150, height: 225)
                             .padding()
                     }
-                    
-                    Text(book.title)
-                        .font(.largeTitle)
+                }
+                Text(book.title)
+                    .font(.largeTitle)
+                    .padding()
+                HStack {
+                    Text(book.author)
                         .padding()
-                    HStack {
-                        Text(book.author)
-                            .padding()
-                        Spacer()
-                        Text(book.id)
-                            .font(.caption)
-                            .padding()
-                    }
-                
-                    Text(book.description)
+                    Spacer()
+                    Text(book.id)
+                        .font(.caption)
                         .padding()
                 }
+                
+                bookStatus(book, books: bks)
+                
+                Text(book.description)
+                    .padding()
             }
         }
     }
 }
 
+func bookStatus(_ book: libraryBook, books: [Book]) -> Text {
+    for bk in books {
+        if bk.id == book.id {
+            return Text("Due: \(bk.due)").font(.caption).foregroundColor(.blue)
+        }
+        
+        if book.issued.isEmpty || book.issued == "" {
+            return Text("Available!").font(.caption).foregroundColor(.green)
+        }
+        
+    }
+    
+    return Text("Taken or Unavailable").font(.caption).foregroundColor(.red)
+}
+
 #Preview {
-    BookContextView(book: libraryBook(id: "000"))
+    BookContextView(bks: [], book: libraryBook(id: "000"))
 }

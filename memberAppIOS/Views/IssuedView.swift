@@ -24,7 +24,7 @@ struct IssuedView: View {
                 List(books) { book in
                     if let catBook = bookDataList.first(where: { $0.id == book.id }) {
                         NavigationLink(destination:
-                            BookContextView(book: catBook)
+                                        BookContextView(bks: books, book: catBook)
                         ) {
                             HStack {
                                 AsyncImage(url: URL(string: catBook.imageLink)) { phase in

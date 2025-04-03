@@ -122,7 +122,7 @@ struct ContentView: View {
                             .stroke(.cbBlue, lineWidth: 7.5)
                     )
                     
-                    NavigationLink(destination: CatalogView()) {
+                    NavigationLink(destination: CatalogView(books: bookStringToData(displayUser.books) ?? [Book(id: "", due: "")])) {
                         HStack {
                             Text("Catalog")
                                 .font(Font.custom("Inter", size: 25))
