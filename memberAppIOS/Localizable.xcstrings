@@ -1,0 +1,425 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@, %@%@" : {
+      "comment" : "cannot be localised",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@%3$@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@, %2$@%3$@"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@, %2$@%3$@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "comment" : "cannot be localised",
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "%lld/%lld XP" : {
+      "comment" : "cannot be localised",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld/%2$lld XP"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld XP"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld XP"
+          }
+        }
+      }
+    },
+    "Available!" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अवेलेबल!"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wātea!"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कैंसिल "
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Whakakore"
+          }
+        }
+      }
+    },
+    "Catalog" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कैटलॉग "
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rārangi Pukapuka"
+          }
+        }
+      }
+    },
+    "ContentView" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कंटेंटव्यू "
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ContentView"
+          }
+        }
+      }
+    },
+    "Couldn't find user" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कोल्ड’टी फाइंड यूजर "
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kāore i kitea te kaiwhakamahi"
+          }
+        }
+      }
+    },
+    "DEBUG RESET DATA" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "डीबग रिसेट डेटा "
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aro turuki – Tautuhi anō i ngā Raraunga"
+          }
+        }
+      }
+    },
+    "Due: %@" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ड्यू: %@"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ka pau te wā: %@"
+          }
+        }
+      }
+    },
+    "Expires: %@" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एक्सपायर्स: %@"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ka pau: %@"
+          }
+        }
+      }
+    },
+    "G2-XXXXXXXX" : {
+      "comment" : "always same",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G2-XXXXXXXX"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G2-XXXXXXXX"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G2-XXXXXXXX"
+          }
+        }
+      }
+    },
+    "ID: %@" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ID: %@"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ID: %@"
+          }
+        }
+      }
+    },
+    "Issued Books" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "इश्यूड बुक्स "
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ngā Pukapuka i Tukuna"
+          }
+        }
+      }
+    },
+    "log out or change details" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "लोग आउट और चेंज डिटेल्स"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puta i te takiuru, whakatika rānei i ngā taipitopito"
+          }
+        }
+      }
+    },
+    "No books :(" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नो बुक्स :("
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kāore he pukapuka :("
+          }
+        }
+      }
+    },
+    "OK" : {
+      "comment" : "OK",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ओके"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Scan Member Card" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "स्कैन मेम्बर कार्ड"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mātai i te Kāri Mema"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सेटिंग्स"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tautuhinga"
+          }
+        }
+      }
+    },
+    "SettingsView" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सेटिंग्सव्यू"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SettingsView"
+          }
+        }
+      }
+    },
+    "SetupView" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सेटअपव्यू"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SetupView"
+          }
+        }
+      }
+    },
+    "Taken or Unavailable" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ताकें और अनअवेलेबल"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kua tangohia, kāore rānei i te wātea"
+          }
+        }
+      }
+    },
+    "Welcome" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "वेलकम"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nau mai"
+          }
+        }
+      }
+    },
+    "Your device does not support NFC!" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "योर डिवाइस डस नोट सपोर्ट NFC!"
+          }
+        },
+        "mi-NZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kāore tō pūrere e tautoko ana i te NFC!"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
