@@ -74,16 +74,16 @@ struct BookContextView: View {
 func bookStatus(_ book: libraryBook, books: [Book]) -> Text {
     for bk in books {
         if bk.id == book.id {
-            return Text("Due: \(bk.due)").font(.caption).foregroundColor(.blue)
+            return Text("Due: \(bk.due)").foregroundColor(.blue)
         }
         
         if book.issued.isEmpty || book.issued == "" {
-            return Text("Available!").font(.caption).foregroundColor(.green)
+            return Text("Available!").foregroundColor(.green)
         }
         
     }
     
-    return Text("Taken or Unavailable").font(.caption).foregroundColor(.red)
+    return Text("Taken or Unavailable").foregroundColor(.red)
 }
 
 #Preview {
