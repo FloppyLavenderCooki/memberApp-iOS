@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BookContextView: View {
     @StateObject var bookModel: BookModel = BookModel()
-    @StateObject var imageCacheController = ImageCacheController()
     
     let bks: [Book]
     
@@ -21,32 +20,51 @@ struct BookContextView: View {
     var body: some View {
         ScrollView {
             VStack {
-                let image = imageCacheController.loadImage(for: book.imageLink, placeholder: Image(.noCover))
-
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150, height: 225)
-                
+                AsyncImage(url: URL(string: book.imageLink)) { phase in
+                    switch phase {
+                    case .empty:
+                        Image(.noCover)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 225)
+                            .padding()
+                        
+                    case .success(let image):
+                        image.resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 225)
+                            .padding()
+                        
+                    case .failure:
+                        Image(.noCover)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 225)
+                            .padding()
+                        
+                    @unknown default:
+                        Image(.noCover)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 225)
+                            .padding()
+                    }
+                }
                 Text(book.title)
-                    .font(Font.custom("Rubik", size: 35, relativeTo: .largeTitle))
-                    .fontWeight(.heavy)
-                    .multilineTextAlignment(.center)
+                    .font(.largeTitle)
                     .padding()
                 HStack {
                     Text(book.author)
-                        .font(Font.custom("Inter", size: 15, relativeTo: .subheadline))
                         .padding()
                     Spacer()
                     Text(book.id)
-                        .font(Font.custom("Inter", size: 15, relativeTo: .subheadline))
+                        .font(.caption)
                         .padding()
                 }
                 
                 bookStatus(book, books: bks)
                 
                 Text(book.description)
-                    .font(Font.custom("Inter", size: 12.5))
                     .padding()
             }
         }

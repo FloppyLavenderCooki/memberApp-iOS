@@ -10,8 +10,6 @@ import SwiftUI
 
 struct IssuedView: View {
     @StateObject var bookModel: BookModel = BookModel()
-    @StateObject var imageCacheController = ImageCacheController()
-    
     @State private var searchText: String = ""
 
     let books: [Book]
@@ -39,7 +37,7 @@ struct IssuedView: View {
 
             if filteredBooks.isEmpty {
                 Text("No books found :(")
-                    .font(Font.custom("Rubik", size: 50, relativeTo: .largeTitle))
+                    .font(.largeTitle)
                     .foregroundColor(.black)
                     .padding()
             } else {
@@ -49,28 +47,47 @@ struct IssuedView: View {
                                         BookContextView(bks: books, book: catBook)
                         ) {
                             HStack {
-                                let image = imageCacheController.loadImage(for: catBook.imageLink, placeholder: Image(.noCover))
-                                
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 150)
+                                AsyncImage(url: URL(string: catBook.imageLink)) { phase in
+                                    switch phase {
+                                    case .empty:
+                                        Image(.noCover)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 150)
+
+                                    case .success(let image):
+                                        image.resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 150)
+
+                                    case .failure:
+                                        Image(.noCover)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 150)
+
+                                    @unknown default:
+                                        Image(.noCover)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 150)
+                                    }
+                                }
 
                                 VStack(alignment: .leading) {
                                     Text(catBook.title)
-                                        .font(Font.custom("Rubik", size: 20, relativeTo: .largeTitle))
-                                        .fontWeight(.bold)
+                                        .font(.headline)
                                     HStack {
                                         Text(catBook.author)
-                                            .font(Font.custom("Inter", size: 15, relativeTo: .subheadline))
+                                            .font(.subheadline)
 
                                         Spacer()
 
                                         Text("ID: \(catBook.id)")
-                                            .font(Font.custom("Inter", size: 15, relativeTo: .subheadline))
+                                            .font(.subheadline)
                                     }
                                     Text("Due: \(book.due)")
-                                        .font(Font.custom("Inter", size: 15, relativeTo: .caption))
+                                        .font(.caption)
                                         .foregroundColor(.yellow)
                                 }
                             }
