@@ -10,7 +10,7 @@ import SwiftUI
 
 struct IssuedView: View {
     @StateObject var bookModel: BookModel = BookModel()
-    @State private var searchText: String = "" // Search bar text
+    @State private var searchText: String = ""
 
     let books: [Book]
 

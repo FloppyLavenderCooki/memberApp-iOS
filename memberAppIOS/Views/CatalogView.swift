@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CatalogView: View {
     @StateObject var bookModel: BookModel = BookModel()
-    @State private var searchText: String = "" // Search bar text
+    @State private var searchText: String = ""
 
     var books: [Book]
 
@@ -27,7 +27,6 @@ struct CatalogView: View {
 
     var body: some View {
         VStack {
-            // Search bar
             TextField("Search books or authors...", text: $searchText)
                 .padding(8)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
