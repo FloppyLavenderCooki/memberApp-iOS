@@ -10,18 +10,38 @@ import SwiftUI
 
 struct IssuedView: View {
     @StateObject var bookModel: BookModel = BookModel()
-    
+    @State private var searchText: String = "" // Search bar text
+
     let books: [Book]
-    
+
+    var filteredBooks: [Book] {
+        if searchText.isEmpty {
+            return books
+        } else {
+            return books.filter { book in
+                if let catBook = bookDataList.first(where: { $0.id == book.id }) {
+                    return catBook.title.localizedCaseInsensitiveContains(searchText) ||
+                           catBook.author.localizedCaseInsensitiveContains(searchText)
+                }
+                return false
+            }
+        }
+    }
+
     var body: some View {
         VStack {
-            if books.isEmpty {
-                Text("No books :(")
+            TextField("Search books or authors...", text: $searchText)
+                .padding(8)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal)
+
+            if filteredBooks.isEmpty {
+                Text("No books found :(")
                     .font(.largeTitle)
                     .foregroundColor(.black)
                     .padding()
             } else {
-                List(books) { book in
+                List(filteredBooks) { book in
                     if let catBook = bookDataList.first(where: { $0.id == book.id }) {
                         NavigationLink(destination:
                                         BookContextView(bks: books, book: catBook)
@@ -34,18 +54,18 @@ struct IssuedView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 100, height: 150)
-                                        
+
                                     case .success(let image):
                                         image.resizable()
                                             .scaledToFit()
                                             .frame(width: 100, height: 150)
-                                        
+
                                     case .failure:
                                         Image(.noCover)
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 100, height: 150)
-                                        
+
                                     @unknown default:
                                         Image(.noCover)
                                             .resizable()
@@ -53,16 +73,16 @@ struct IssuedView: View {
                                             .frame(width: 100, height: 150)
                                     }
                                 }
-                                
+
                                 VStack(alignment: .leading) {
                                     Text(catBook.title)
                                         .font(.headline)
                                     HStack {
                                         Text(catBook.author)
                                             .font(.subheadline)
-                                        
+
                                         Spacer()
-                                        
+
                                         Text("ID: \(catBook.id)")
                                             .font(.subheadline)
                                     }
@@ -83,4 +103,3 @@ struct IssuedView: View {
 #Preview {
     IssuedView(books: [])
 }
-

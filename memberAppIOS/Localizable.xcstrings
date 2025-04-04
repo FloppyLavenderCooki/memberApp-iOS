@@ -201,6 +201,12 @@
             "value" : "G2-XXXXXXXX"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G2-XXXXXXXX"
+          }
+        },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -263,21 +269,8 @@
         }
       }
     },
-    "No books :(" : {
-      "localizations" : {
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "नो बुक्स :("
-          }
-        },
-        "mi-NZ" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kāore he pukapuka :("
-          }
-        }
-      }
+    "No books found :(" : {
+
     },
     "OK" : {
       "comment" : "OK",
@@ -323,6 +316,9 @@
           }
         }
       }
+    },
+    "Search books or authors..." : {
+
     },
     "Settings" : {
       "localizations" : {
