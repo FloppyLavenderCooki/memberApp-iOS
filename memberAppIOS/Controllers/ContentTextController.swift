@@ -87,7 +87,7 @@ var subtitles: [String] = [
 
 
 func makeDisplayText() {
-    var greetingSelected = greetings.randomElement()
+    let greetingSelected = greetings.randomElement()
     
     welcomeText = greetingSelected?.key ?? "Hello"
     subtitleText = subtitles.randomElement() ?? "Glad to see you."
