@@ -10,6 +10,8 @@ import SwiftUI
 
 struct CatalogView: View {
     @StateObject var bookModel: BookModel = BookModel()
+    @StateObject var imageCacheController = ImageCacheController()
+    
     @State private var searchText: String = ""
 
     var books: [Book]
@@ -35,39 +37,23 @@ struct CatalogView: View {
             List(filteredBooks) { catBook in
                 NavigationLink(destination: BookContextView(bks: books, book: catBook)) {
                     HStack {
-                        AsyncImage(url: URL(string: catBook.imageLink)) { phase in
-                            switch phase {
-                            case .empty:
-                                Image(.noCover)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 150)
-                            case .success(let image):
-                                image.resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 150)
-                            case .failure:
-                                Image(.noCover)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 150)
-                            @unknown default:
-                                Image(.noCover)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 150)
-                            }
-                        }
+                        let image = imageCacheController.loadImage(for: catBook.imageLink, placeholder: Image(.noCover))
+                        
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 150)
 
                         VStack(alignment: .leading) {
                             Text(catBook.title)
-                                .font(.headline)
+                                .font(Font.custom("Rubik", size: 20, relativeTo: .largeTitle))
+                                .fontWeight(.bold)
                             HStack {
                                 Text(catBook.author)
-                                    .font(.subheadline)
+                                    .font(Font.custom("Inter", size: 15, relativeTo: .subheadline))
                                 Spacer()
                                 Text("ID: \(catBook.id)")
-                                    .font(.subheadline)
+                                    .font(Font.custom("Inter", size: 15, relativeTo: .subheadline))
                             }
                         }
                     }
