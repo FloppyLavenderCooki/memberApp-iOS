@@ -42,13 +42,19 @@ struct CatalogView: View {
                 .padding(.horizontal)
             
             if filteredBooks.isEmpty {
-                Spacer()
-                Text("No books found :(")
-                    .font(Font.custom("Rubik", size: 30, relativeTo: .title))
-                    .bold()
-                    .foregroundColor(.black)
-                    .padding()
-                Spacer()
+                ZStack {
+                    Color(.background)
+                        .ignoresSafeArea()
+                    VStack {
+                        Spacer()
+                        Text("No books found :(")
+                            .font(Font.custom("Rubik", size: 30, relativeTo: .title))
+                            .bold()
+                            .foregroundColor(.black)
+                            .padding()
+                        Spacer()
+                    }
+                }
             } else {
                 List(filteredBooks) { catBook in
                     NavigationLink(destination: BookContextView(bks: books, book: catBook)) {
@@ -101,3 +107,4 @@ struct CatalogView: View {
     CatalogView(books: [Book(id: "", due: "")])
 }
 
+// 242, 242, 247

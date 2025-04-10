@@ -221,6 +221,9 @@
         }
       }
     },
+    "Home" : {
+
+    },
     "ID: %@" : {
       "localizations" : {
         "hi" : {

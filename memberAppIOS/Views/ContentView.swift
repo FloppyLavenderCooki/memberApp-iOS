@@ -23,14 +23,17 @@ struct ContentView: View {
     @State var expReqText: Float = Float(getExpRequirement(displayUser))
 
     var body: some View {
-        
         NavigationView {
             ScrollView {
                 VStack {
-                    
-                    Image(systemName: "book.pages.fill")
-                        .imageScale(.large)
-                        .foregroundStyle(.accent)
+                    HStack {
+                        Image(systemName: "house.fill")
+                            .imageScale(.large)
+                            .foregroundStyle(.accent)
+                        
+                        Text("Home")
+                            .font(Font.custom("Rubik", size: 30, relativeTo: .title))
+                    }
                     
                     Text("\(welcomeText), \(firstNameText)\(suffixText)")
                         .font(Font.custom("Rubik", size: 50, relativeTo: .largeTitle))
@@ -151,7 +154,7 @@ struct ContentView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(.cbBlue, lineWidth: 7.5)
                     )
-                    NavigationLink(destination: SettingsView()) {
+                    NavigationLink(destination: SettingsView(setupState: _setupState)) {
                         HStack {
                             Text("Settings")
                                 .font(Font.custom("Inter", size: 25))
@@ -175,33 +178,19 @@ struct ContentView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(.cbBlue, lineWidth: 7.5)
                     )
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        setupState.setupComplete = false
-                        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-                    }) {
-                        Text("DEBUG RESET DATA")
-                            .frame(maxWidth: .infinity)
-                            .font(Font.custom("Inter", size: 15, relativeTo: .caption))
-                            .foregroundStyle(.textColour)
-                            .fontWeight(.heavy)
-                            .padding()
-                            .background(Color.red.opacity(0.5))
-                            .cornerRadius(20)
-                    }
-                    
                 }
                 .padding()
             }
             .preferredColorScheme(.light)
             .safeAreaInset(edge: .top) {
-                Color.cbBlue
-                    .frame(height: 75)
-                    .ignoresSafeArea()
-                    .shadow(color: .black, radius: 5)
+                ZStack {
+                    Color.cbBlue
+                        .frame(height: 50)
+                        .ignoresSafeArea()
+                        .shadow(color: .black, radius: 5)
+                }
             }
+            
         }
         .onAppear {
             viewModel.getData(setupState)

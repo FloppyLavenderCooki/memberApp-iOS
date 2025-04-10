@@ -10,14 +10,33 @@ import SwiftUI
 
 
 struct SettingsView: View {
+    @EnvironmentObject var setupState: SetupState
+    
     var body: some View {
-        VStack {
-            Image(systemName: "gear")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("log out or change details")
+        NavigationView {
+            VStack {
+                Image(systemName: "book.and.wrench.fill")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("log out or change details")
+                
+                Button(action: {
+                    setupState.setupComplete = false
+                    UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+                }) {
+                    Text("DEBUG RESET DATA")
+                        .frame(maxWidth: .infinity)
+                        .font(Font.custom("Inter", size: 15, relativeTo: .caption))
+                        .foregroundStyle(.textColour)
+                        .fontWeight(.heavy)
+                        .padding()
+                        .background(Color.red.opacity(0.5))
+                        .cornerRadius(20)
+                }
+            }
+            .padding()
         }
-        .padding()
+        .preferredColorScheme(.light)
     }
 }
 

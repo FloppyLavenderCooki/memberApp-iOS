@@ -45,13 +45,19 @@ struct IssuedView: View {
                 .padding(.horizontal)
 
             if filteredBooks.isEmpty {
-                Spacer()
-                Text("No books found :(")
-                    .font(Font.custom("Rubik", size: 30, relativeTo: .title))
-                    .bold()
-                    .foregroundColor(.black)
-                    .padding()
-                Spacer()
+                ZStack {
+                    Color(.background)
+                        .ignoresSafeArea()
+                    VStack {
+                        Spacer()
+                        Text("No books found :(")
+                            .font(Font.custom("Rubik", size: 30, relativeTo: .title))
+                            .bold()
+                            .foregroundColor(.black)
+                            .padding()
+                        Spacer()
+                    }
+                }
             } else {
                 List(filteredBooks) { book in
                     if let catBook = bookDataList.first(where: { $0.id == book.id }) {
