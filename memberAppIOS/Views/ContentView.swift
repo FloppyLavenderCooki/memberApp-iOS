@@ -27,6 +27,11 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 VStack {
+                    
+                    Image(systemName: "book.pages.fill")
+                        .imageScale(.large)
+                        .foregroundStyle(.accent)
+                    
                     Text("\(welcomeText), \(firstNameText)\(suffixText)")
                         .font(Font.custom("Rubik", size: 50, relativeTo: .largeTitle))
                         .multilineTextAlignment(.center)
@@ -146,9 +151,7 @@ struct ContentView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(.cbBlue, lineWidth: 7.5)
                     )
-                    Button(action: {
-                        
-                    }) {
+                    NavigationLink(destination: SettingsView()) {
                         HStack {
                             Text("Settings")
                                 .font(Font.custom("Inter", size: 25))

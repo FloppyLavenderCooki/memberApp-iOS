@@ -85,6 +85,12 @@ struct SetupView: View {
                             TextField("G2-XXXXXXXX", text: $userID)
                                 .keyboardType(.decimalPad)
                             Button("OK") {
+                                
+                                if userID.contains("G2-") {
+                                    userID = userID.replacingOccurrences(of: "G2-", with: "")
+                                }
+
+                                
                                 getUserData(userID, "TYPE")
                                 viewModel.getData(setupState)
                                 

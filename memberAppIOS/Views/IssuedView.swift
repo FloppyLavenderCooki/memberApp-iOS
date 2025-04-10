@@ -30,16 +30,28 @@ struct IssuedView: View {
 
     var body: some View {
         VStack {
+            HStack {
+                Image(systemName: "bookmark.square.fill")
+                    .imageScale(.large)
+                    .foregroundStyle(.accent)
+                
+                Text("Issued Books")
+                    .font(Font.custom("Rubik", size: 30, relativeTo: .title))
+            }
+            
             TextField("Search books or authors...", text: $searchText)
                 .padding(8)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal)
 
             if filteredBooks.isEmpty {
+                Spacer()
                 Text("No books found :(")
-                    .font(.largeTitle)
+                    .font(Font.custom("Rubik", size: 30, relativeTo: .title))
+                    .bold()
                     .foregroundColor(.black)
                     .padding()
+                Spacer()
             } else {
                 List(filteredBooks) { book in
                     if let catBook = bookDataList.first(where: { $0.id == book.id }) {
