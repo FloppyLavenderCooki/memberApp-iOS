@@ -15,10 +15,15 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image(systemName: "book.and.wrench.fill")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("log out or change details")
+                HStack {
+                    Image(systemName: "book.and.wrench.fill")
+                        .imageScale(.large)
+                        .foregroundStyle(.accent)
+                    
+                    Text("Settings")
+                        .font(Font.custom("Rubik", size: 30, relativeTo: .title))
+                }
+                Spacer()
                 
                 Button(action: {
                     setupState.setupComplete = false
@@ -33,6 +38,8 @@ struct SettingsView: View {
                         .background(Color.red.opacity(0.5))
                         .cornerRadius(20)
                 }
+                
+                Spacer()
             }
             .padding()
         }

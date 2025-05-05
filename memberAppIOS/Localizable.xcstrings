@@ -257,6 +257,7 @@
       }
     },
     "log out or change details" : {
+      "extractionState" : "stale",
       "localizations" : {
         "hi" : {
           "stringUnit" : {

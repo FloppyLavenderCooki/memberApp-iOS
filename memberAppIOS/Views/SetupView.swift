@@ -89,7 +89,9 @@ struct SetupView: View {
                                 if userID.contains("G2-") {
                                     userID = userID.replacingOccurrences(of: "G2-", with: "")
                                 }
-
+                                
+                                userID = addLeadingZeros(from: userID)
+                                
                                 
                                 getUserData(userID, "TYPE")
                                 viewModel.getData(setupState)
@@ -120,6 +122,10 @@ struct SetupView: View {
     }
 }
 
+func addLeadingZeros(from input: String) -> String {
+    let padded = String(repeating: "0", count: max(0, 8 - input.count)) + input
+    return padded
+}
 
 #Preview {
     SetupView()
