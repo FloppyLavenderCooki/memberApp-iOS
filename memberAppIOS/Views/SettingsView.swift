@@ -25,17 +25,26 @@ struct SettingsView: View {
                 }
                 Spacer()
                 
+                // textfield to change name
+                // textfield to change password
+                // textfield to change city
+                
+                Text("V0.9.1")
+                Text("Group Two Libraries")
+                
+                Spacer()
+                
                 Button(action: {
                     setupState.setupComplete = false
                     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
                 }) {
-                    Text("DEBUG RESET DATA")
+                    Text("Log Out")
                         .frame(maxWidth: .infinity)
                         .font(Font.custom("Inter", size: 15, relativeTo: .caption))
                         .foregroundStyle(.textColour)
                         .fontWeight(.heavy)
                         .padding()
-                        .background(Color.red.opacity(0.5))
+                        .background(Color.cbBlue.opacity(0.5))
                         .cornerRadius(20)
                 }
                 
