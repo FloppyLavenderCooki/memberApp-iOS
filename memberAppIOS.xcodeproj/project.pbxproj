@@ -297,6 +297,7 @@
 				hi,
 				"mi-NZ",
 				es,
+				"zh-Hans",
 			);
 			mainGroup = 8AB283272D5FDEC6009CA44A;
 			minimizedProjectReferenceProxies = 1;
